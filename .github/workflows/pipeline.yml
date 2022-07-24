@@ -19,6 +19,6 @@ jobs:
       - name: search the string in github organization
         uses: ./.github/actions/search-string-in-github-org
         with:
-          gthub-org-name: ${{ secrets.GTHUB_ORGNAME }}
+          gthub-org-name: 'PipelineTest-VP'
           gthub-token: ${{ secrets.GTHUB_TOKEN }}
           search-string: ${{ github.event.inputs.searchString }}
