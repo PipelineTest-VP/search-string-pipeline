@@ -1,0 +1,19 @@
+name: 'Search a string in github organization'
+description: 'Search a string in github organization'
+inputs:
+  gthub-org-name:
+    description: 'Github orhanization name'
+    required: true
+    default: ''
+  gthub-token:
+    description: 'Github service account token'
+    required: true
+    default: ''
+  search-string:
+    description: 'Search string'
+    required: true
+    default: ''
+
+runs:
+  using: 'node16'
+  main: 'index.js'

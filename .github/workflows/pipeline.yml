@@ -1,0 +1,25 @@
+name: Search String in Github Org
+
+on:
+  workflow_dispatch:
+    workflow_dispatch:
+    inputs:
+      searchString:
+        description: 'Search String'     
+        required: true
+        default: 'log'
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout pipeline repo'
+        uses: actions/checkout@v3
+
+      - name: search the string in github organization
+        uses: ./.github/actions/search-string-in-github-org
+        with:
+          gthub-org-name: ${{ secrets.GTHUB_ORGNAME }}
+          gthub-token: ${{ secrets.GTHUB_TOKEN }}
+          search-string: ${{ github.event.inputs.searchString }}
