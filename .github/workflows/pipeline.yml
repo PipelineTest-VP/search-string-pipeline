@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       searchString:
-        description: 'Search String'     
+        description: 'Enter Search String'     
         required: true
         default: 'log'
 
