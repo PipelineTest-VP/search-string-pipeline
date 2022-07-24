@@ -9,7 +9,7 @@ on:
         default: 'log'
 
 jobs:
-  greet:
+  SearchString:
     runs-on: ubuntu-latest
 
     steps:
