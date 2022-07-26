@@ -7,6 +7,7 @@ async function main() {
         const gtOrg = core.getInput("gthub-org-name") || "";
         const gthubToken = core.getInput("gthub-token") || "";
         const searchString = core.getInput("search-string") || "";
+        const fileExtension = core.getInput("file-extension") || "";
 
         const octokit = new Octokit({
             auth: gthubToken
@@ -18,9 +19,14 @@ async function main() {
         let totalMatchedRepos = 0;
         const perPageResults = 100;
 
+        let queryString = `${searchString} org:${gtOrg}`;
+        if(fileExtension) {
+            queryString += ` extension:${fileExtension}`;
+        }
+
         do {
             const searchResponse = await octokit.rest.search.code({
-                q: `${searchString} org:${gtOrg}`,
+                q: queryString,
                 order: "asc",
                 sort: "indexed",
                 per_page: perPageResults,

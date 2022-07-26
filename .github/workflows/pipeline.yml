@@ -6,7 +6,11 @@ on:
       searchString:
         description: 'Enter Search String'     
         required: true
-        default: 'log'
+        default: ''
+      fileExtension:
+        description: 'Enter File Extension'     
+        required: false
+        default: ''
 
 jobs:
   SearchString:
@@ -22,3 +26,4 @@ jobs:
           gthub-org-name: 'PipelineTest-VP'
           gthub-token: ${{ secrets.GTHUB_TOKEN }}
           search-string: ${{ github.event.inputs.searchString }}
+          file-extension: ${{ github.event.inputs.fileExtension }}

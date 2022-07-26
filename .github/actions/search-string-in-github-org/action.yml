@@ -13,6 +13,10 @@ inputs:
     description: 'Search string'
     required: true
     default: ''
+  file-extension:
+    description: 'Extension of file to be searched in'
+    required: false
+    default: ''
 
 runs:
   using: 'node16'
